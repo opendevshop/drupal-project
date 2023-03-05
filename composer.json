@@ -84,6 +84,9 @@
             "drupal/core": "-p2"
         },
         "patches": {
+            "drupal/core": [
+                "./patches/no-emoji-info.patch"
+            ]
         }
     }
 }
