@@ -21,6 +21,7 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-recommended": "^9.4",
+        "drupal/drupal-extension": "^4.2",
         "symfony/filesystem": "^4.4",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2",
@@ -62,6 +63,18 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "deploy:build": [
+            "composer install --dev --profile --audit"
+        ],
+        "deploy:update": [
+            "drush pm:update --no-cache-clear",
+            "drush cache:rebuild",
+            "drush config:import",
+            "drush cache:rebuild"
+        ],
+        "deploy:test": [
+            "composer outdated --strict"
         ]
     },
     "extra": {
@@ -83,6 +96,9 @@
             "drupal/core": "-p2"
         },
         "patches": {
+            "drupal/core": [
+                "./patches/no-emoji-info.patch"
+            ]
         }
     }
 }
