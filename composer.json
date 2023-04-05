@@ -64,6 +64,16 @@
         ],
         "post-update-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "deploy:build": [
+            "composer --no-interaction install --no-progress --prefer-dist --optimize-autoloader"
+        ],
+        "deploy:update": [
+            "drush updatedb --yes --no-cache-clear",
+            "drush cache:rebuild"
+        ],
+        "deploy:test": [
+            "drush status"
         ]
     },
     "extra": {
