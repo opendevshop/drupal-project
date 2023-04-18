@@ -75,7 +75,7 @@
             "drush cache:rebuild"
         ],
         "deploy:test": [
-            "composer outdated --strict"
+            "behat"
         ]
     },
     "extra": {
