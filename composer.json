@@ -36,6 +36,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "bin-dir": "bin",
         "discard-changes": true,
         "sort-packages": true,
         "allow-plugins": {
